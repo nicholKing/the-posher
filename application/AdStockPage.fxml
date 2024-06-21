@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdStockController">
+   <children>
+      <ScrollPane fx:id="scrollPane" layoutX="414.0" layoutY="221.0" prefHeight="474.0" prefWidth="826.0" style="-fx-background-color: gray; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 5, 5);">
+         <content>
+            <VBox fx:id="itemsVBox" prefHeight="50.0" prefWidth="808.0" spacing="5.0">
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding></VBox>
+         </content>
+      </ScrollPane>
+      <HBox alignment="CENTER" layoutX="414.0" layoutY="174.0" prefHeight="48.0" prefWidth="826.0" spacing="80.0" style="-fx-border-color: black; -fx-background-color: #E8D8C4;">
+         <children>
+            <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Food Name">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Category">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="104.0" style="-fx-font-weight: bold;" text="Option">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" style="-fx-font-weight: bold;" text="Price">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="78.0" style="-fx-font-weight: bold;" text="Stocks">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </HBox>
+     <AnchorPane fx:id="slider2" layoutX="1065.0" layoutY="85.0" prefHeight="640.0" prefWidth="215.0" style="-fx-background-color: E8D8C4;">
+         <children>
+            <VBox prefHeight="640.0" prefWidth="215.0" style="-fx-border-color: black;">
+               <children>
+                  <HBox prefHeight="0.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="nameLabel" prefHeight="75.0" prefWidth="135.0" style="-fx-font-weight: bold;" text="Guest" wrapText="true">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#showAccount" prefHeight="60.0" prefWidth="73.0" style="-fx-background-color: E8D8C4;">
+                           <font>
+                              <Font name="Arial" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pictures/profile-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="roleLabel" prefHeight="21.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Role">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#showAccount" prefHeight="27.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="right-panel-button" stylesheets="@general.css" text="Edit Account">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="440.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="82.0" prefWidth="213.0" spacing="32.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="128.0" styleClass="right-panel-button" stylesheets="@general.css" text="Logout">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="15.0" top="15.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <VBox alignment="TOP_CENTER" layoutX="60.0" layoutY="152.0" prefHeight="514.0" prefWidth="311.0" spacing="8.0" style="-fx-border-color: BLACK; -fx-border-radius: 10;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="47.0" prefWidth="262.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="8.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="47.0" prefWidth="175.0" style="-fx-font-weight: bold;" text="REPORT">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="filterComboBox" prefHeight="25.0" prefWidth="104.0" promptText="Filter" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets right="16.0" />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="283.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Food Name:" />
+                  <TextField fx:id="foodnameField" prefHeight="32.0" prefWidth="216.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="283.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Category:" />
+                  <ComboBox fx:id="categoryComboBox" prefHeight="32.0" prefWidth="216.0" promptText=" Choose Category" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="283.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Option:" />
+                  <TextField fx:id="optionField" prefHeight="32.0" prefWidth="216.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="283.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Price:" />
+                  <TextField fx:id="priceField" prefHeight="32.0" prefWidth="216.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="41.0" prefWidth="283.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="141.0" style="-fx-font-weight: bold;" text="Stock:" />
+                  <TextField fx:id="stockField" prefHeight="32.0" prefWidth="216.0" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="49.0" prefWidth="289.0" spacing="20.0">
+               <children>
+                  <Button fx:id="uploadBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="128.0" style="-fx-text-fill: #E8D8C4; -fx-font-weight: bold;" styleClass="comic-button" stylesheets="@general.css" text="Insert Image" />
+               </children>
+            </HBox>
+            <ImageView fx:id="imageView" fitHeight="144.0" fitWidth="188.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox alignment="CENTER" prefHeight="16.0" prefWidth="262.0" spacing="16.0">
+               <children>
+                  <Button fx:id="addBtn" mnemonicParsing="false" prefHeight="24.0" prefWidth="56.0" style="-fx-font-weight: bold; -fx-text-fill: black;" styleClass="select-button" stylesheets="@general.css" text="Add" />
+                  <Button fx:id="updateBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" style="-fx-font-weight: bold; -fx-text-fill: black;" styleClass="select-button" stylesheets="@general.css" text="Update" />
+                  <Button fx:id="deleteBtn" mnemonicParsing="false" prefHeight="35.0" prefWidth="85.0" style="-fx-font-weight: bold; -fx-text-fill: black;" styleClass="select-button" stylesheets="@general.css" text="Delete" />
+               </children>
+               <VBox.margin>
+                  <Insets top="12.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <AnchorPane fx:id="slider" layoutX="4.0" layoutY="-4.0" prefHeight="729.0" prefWidth="89.0" style="-fx-border-color: black;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-11.0" layoutY="92.0" prefHeight="634.0" prefWidth="109.0" spacing="24.0" style="-fx-background-color: E8D8C4;">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#homeBtn" prefHeight="86.0" prefWidth="159.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/home%20-%20light.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#orderBtn" prefHeight="77.0" prefWidth="181.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Order" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/menu(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showCart" prefHeight="74.0" prefWidth="180.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Stocks">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/ready-stock.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTable" prefHeight="87.0" prefWidth="175.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Table" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/dining-table.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="employmentBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#showEmployment" prefHeight="75.0" prefWidth="156.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Employment">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/headhunting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="90.0" prefWidth="1280.0" style="-fx-background-color: C7B7A3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="accountClose" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuClose" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="account" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <ImageView fitHeight="337.0" fitWidth="506.0" layoutX="566.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/stocks.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

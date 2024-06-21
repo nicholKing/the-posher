@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="foodBox" alignment="CENTER" prefHeight="311.0" prefWidth="146.0" spacing="4.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderPanelController">
+   <children>
+      <ImageView fx:id="img" fitHeight="134.0" fitWidth="120.0" pickOnBounds="true">
+         <image>
+            <Image url="@../pictures/fast-food.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="priceLabel" prefHeight="25.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="Price" />
+      <Label fx:id="foodLabel" alignment="CENTER" prefHeight="62.0" prefWidth="130.0" style="-fx-font-weight: bold;" text="Label" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="opt1" mnemonicParsing="false" style="-fx-font-weight: bold;" stylesheets="@general.css" text="Opt1" />
+      <RadioButton fx:id="opt2" mnemonicParsing="false" style="-fx-font-weight: bold;" stylesheets="@general.css" text="Opt2" />
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</VBox>

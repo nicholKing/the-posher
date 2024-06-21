@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TableReservationController">
+   <children>
+      <AnchorPane fx:id="slider" layoutX="4.0" layoutY="-4.0" prefHeight="729.0" prefWidth="89.0" style="-fx-border-width: 20;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-11.0" layoutY="92.0" prefHeight="633.0" prefWidth="102.0" spacing="24.0" style="-fx-background-color: E8D8C4; -fx-border-color: black;">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#homeBtn" prefHeight="86.0" prefWidth="159.0" styleClass="left-panel-button" stylesheets="@general.css" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/home%20-%20light.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#orderBtn" prefHeight="77.0" prefWidth="181.0" styleClass="left-panel-button" stylesheets="@general.css" text="Order" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/menu(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showCart" prefHeight="74.0" prefWidth="180.0" styleClass="left-panel-button" stylesheets="@general.css" text="Cart">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/shopping-cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTable" prefHeight="87.0" prefWidth="175.0" styleClass="left-panel-button" stylesheets="@general.css" text="Table" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/dining-table.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showRewards" prefHeight="75.0" prefWidth="156.0" styleClass="left-panel-button" stylesheets="@general.css" text="Rewards">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/gift.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="90.0" prefWidth="1280.0" style="-fx-background-color: C7B7A3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="accountClose" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuClose" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="account" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <Label id="header" layoutX="427.0" layoutY="14.0" prefHeight="62.0" prefWidth="446.0" text="TABLE RESERVATION">
+               <font>
+                  <Font size="42.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="64.0" layoutX="351.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/dining-table.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="64.0" layoutX="867.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/dining-table.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane fx:id="slider2" layoutX="905.0" layoutY="90.0" prefHeight="633.0" prefWidth="375.0" style="-fx-background-color: #561C24; -fx-border-color: black;">
+         <children>
+            <AnchorPane layoutX="25.0" layoutY="68.0" prefHeight="167.0" prefWidth="322.0" style="-fx-background-color: #E8D8C4; -fx-background-radius: 15;">
+               <children>
+                  <Label id="rightTitle" layoutX="19.0" layoutY="14.0" prefHeight="58.0" prefWidth="248.0" styleClass="rightAnchorText" text="Book your Table" textFill="#e8d8c4">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Label>
+                  <DatePicker id="datepicker" fx:id="datePicker" layoutX="13.0" layoutY="63.0" prefHeight="17.0" prefWidth="176.0" promptText="Pick a date.." styleClass="table-button" />
+                  <Button id="timePick" fx:id="timeButton" layoutX="199.0" layoutY="64.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="109.0" styleClass="table-button" text="Time" />
+                  <Label layoutX="74.0" layoutY="114.0" prefHeight="30.0" prefWidth="86.0" styleClass="rightAnchorText" text="Table for:" />
+                  <Label fx:id="tableNumberLabel" layoutX="161.0" layoutY="116.0" prefHeight="27.0" prefWidth="41.0" styleClass="rightAnchorText" text="0" />
+                  <Button fx:id="editButton" layoutX="262.0" layoutY="17.0" mnemonicParsing="false" text="Edit" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="386.0" fitWidth="371.0" layoutX="2.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher2.png" />
+               </image>
+            </ImageView>
+            <Button id="bookNow" fx:id="bookNow" layoutX="140.0" layoutY="251.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="94.0" styleClass="table-button" text="Book Now" />
+            <Label fx:id="tryLabel" layoutX="44.0" layoutY="537.0" prefHeight="18.0" prefWidth="306.0" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="eightSeat" fitHeight="134.0" fitWidth="234.0" layoutX="143.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/8-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="twoSeat" fitHeight="150.0" fitWidth="200.0" layoutX="333.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/2-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fourSeat" fitHeight="150.0" fitWidth="200.0" layoutX="315.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/4.1-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="eightSeat2" fitHeight="121.0" fitWidth="226.0" layoutX="509.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/8.2-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fiveSeat" fitHeight="150.0" fitWidth="200.0" layoutX="453.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/5-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="tenSeat" fitHeight="253.0" fitWidth="208.0" layoutX="631.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/10-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="sixSeat" fitHeight="150.0" fitWidth="238.0" layoutX="260.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/6-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fourSeat2" fitHeight="150.0" fitWidth="228.0" layoutX="132.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/4.2-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="oneSeat" fitHeight="79.0" fitWidth="138.0" layoutX="665.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/1-seater.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="181.0" fitWidth="153.0" layoutX="161.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/legend.png" />
+         </image>
+      </ImageView>
+      <Circle fill="#dadada" layoutX="320.0" layoutY="191.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#dbc1ac" layoutX="178.0" layoutY="191.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="197.0" layoutY="183.0" text="Table is available" />
+      <Label layoutX="338.0" layoutY="182.0" text="Table is unavailable" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#561c24" height="58.0" layoutX="845.0" layoutY="445.0" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#561c24" height="58.0" layoutX="845.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="11.0" />
+      <Label layoutX="851.0" layoutY="435.0" rotate="-90.0" text="Door" />
+   </children>
+</AnchorPane>

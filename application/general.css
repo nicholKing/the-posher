@@ -1,0 +1,106 @@
+.comic-button {
+  -fx-padding: 5px 10px;
+  -fx-color: #fff;
+  -fx-background-color: #561C24;
+  -fx-background-radius: 30;
+  -fx-border-radius: 10px;
+  -fx-cursor: pointer;
+}
+
+.category-button:hover {
+	-fx-font-size: 16px;
+	-fx-background-color: #efe4d6;
+}
+.category-button {
+	-fx-font-size: 15px;
+	-fx-background-color: #E8D8C4;
+}
+.comic-button:hover {
+  -fx-background-color: #6D2932;
+  -fx-color: #6D2932;
+}
+
+.comic-button:pressed {
+  -fx-background-color: #8a343f;
+}
+
+.comic-button {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 2, 2);
+    -fx-font-size: 16px;
+}
+
+#addToCart:hover{
+	-fx-background-color: #6D2932;
+}
+#addToCart:pressed {
+  -fx-background-color: #8a343f;
+}
+
+#viewCart{
+  -fx-background-color: #E8D8C4;
+}
+
+#viewCart:hover{
+  -fx-background-color: #efe4d6;
+}
+
+#viewCart:pressed {
+  -fx-background-color: #f6f0e9;
+}
+
+
+.radio-button:selected .radio {
+    -fx-mark-color: #561C24; /* Change the radio button mark color to red */
+}
+
+.select-button{
+  -fx-padding: 5px 10px;
+  -fx-color: #fff;
+  -fx-background-color: #E8D8C4;
+  -fx-background-radius: 30;
+  -fx-border-radius: 10px;
+  -fx-cursor: pointer;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 2, 2);
+  -fx-font-size: 17px;
+}
+.select-button:hover {
+  -fx-background-color: #efe4d6;
+  -fx-text-fill: white;
+}
+.select-button:pressed {
+  -fx-background-color: #f6f0e9;
+}
+
+.right-panel-button{
+  -fx-padding: 5px 10px;
+  -fx-color: white;
+  -fx-background-color: #561C24;
+  -fx-background-radius: 30;
+  -fx-border-radius: 10px;
+  -fx-cursor: pointer;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 2, 2);
+  -fx-text-fill: white;
+}
+.right-panel-button:hover{ 
+	-fx-background-color: #6D2932;
+}
+.left-panel-button{
+  -fx-color: white;
+  -fx-background-color: #e8d8c4;
+  -fx-cursor: pointer;
+  -fx-font-size: 14px;
+}
+.left-panel-button:hover{ 
+  -fx-background-color: #efe4d6;
+  -fx-font-size: 14px;
+}
+.account-button{
+  -fx-font-size: 19px;
+   -fx-background-radius: 15;
+}
+
+
+
+
+
+

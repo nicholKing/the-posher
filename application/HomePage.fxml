@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+   <children>
+      <AnchorPane fx:id="slider" layoutX="4.0" layoutY="-4.0" prefHeight="729.0" prefWidth="89.0" style="-fx-border-width: 20;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-11.0" layoutY="92.0" prefHeight="633.0" prefWidth="102.0" spacing="24.0" style="-fx-background-color: E8D8C4; -fx-border-color: black;" stylesheets="@general.css">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#homeBtn" prefHeight="86.0" prefWidth="159.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/home%20-%20light.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#orderBtn" prefHeight="77.0" prefWidth="181.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Order" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/menu(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showCart" prefHeight="74.0" prefWidth="180.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Cart">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/shopping-cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTable" prefHeight="87.0" prefWidth="175.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Table" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/dining-table.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showRewards" prefHeight="75.0" prefWidth="156.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Rewards">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/gift.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="slider2" layoutX="1065.0" layoutY="85.0" prefHeight="640.0" prefWidth="215.0" style="-fx-background-color: E8D8C4;">
+         <children>
+            <VBox alignment="CENTER" layoutY="-8.0" prefHeight="648.0" prefWidth="215.0" style="-fx-border-color: black;" stylesheets="@general.css">
+               <children>
+                  <HBox prefHeight="0.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="nameLabel" prefHeight="75.0" prefWidth="135.0" style="-fx-font-weight: bold;" text="Guest" wrapText="true">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#showAccount" prefHeight="60.0" prefWidth="73.0" style="-fx-background-color: E8D8C4;">
+                           <font>
+                              <Font name="Arial" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pictures/profile-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="roleLabel" prefHeight="21.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Role">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#showAccount" prefHeight="30.0" prefWidth="125.0" styleClass="right-panel-button" stylesheets="@general.css" text="Edit Account">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="440.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox fx:id="signHbox" alignment="CENTER" prefHeight="53.0" prefWidth="213.0" spacing="24.0">
+                     <children>
+                        <Button fx:id="signupBtn" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" styleClass="right-panel-button" stylesheets="@general.css" text="Sign up">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="logBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="82.0" styleClass="right-panel-button" stylesheets="@general.css" text="Login">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="90.0" prefWidth="1280.0" style="-fx-background-color: C7B7A3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="accountClose" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuClose" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="account" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <ImageView fx:id="ad1" fitHeight="141.0" fitWidth="957.0" layoutX="118.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/ad4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ad4" fitHeight="141.0" fitWidth="948.0" layoutX="114.0" layoutY="574.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/ad2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ad2" fitHeight="318.0" fitWidth="535.0" layoutX="112.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/ad1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="ad3" fitHeight="353.0" fitWidth="530.0" layoutX="526.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/ad3.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

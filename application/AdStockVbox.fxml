@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="808.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdStockPaneController">
+   <children>
+      <Label fx:id="foodnameLabel" prefHeight="21.0" prefWidth="239.0" text="Food Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="categoryLabel" prefHeight="21.0" prefWidth="185.0" text="Category">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="optionLabel" prefHeight="30.0" prefWidth="212.0" text="Description">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="priceLabel" prefHeight="21.0" prefWidth="120.0" text="Price">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="stocksLabel" alignment="CENTER" prefHeight="30.0" prefWidth="119.0" text="Stock">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="5.0" right="5.0" />
+   </padding>
+</HBox>

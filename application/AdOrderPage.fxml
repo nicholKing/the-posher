@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AdOrderController">
+   <children>
+      <Label alignment="CENTER" layoutX="342.0" layoutY="90.0" prefHeight="109.0" prefWidth="409.0" text="WELCOME" textAlignment="CENTER">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Label>
+      <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: WHITE;">
+         <children>
+            <ScrollPane fx:id="scrollPane" layoutX="190.0" layoutY="276.0" prefHeight="433.0" prefWidth="1005.0" style="-fx-background-color: gray;">
+               <content>
+                  <GridPane fx:id="rootGridPane" alignment="CENTER" hgap="25.0" style="-fx-border-color: black; -fx-background-color: WHITE;" />
+               </content>
+            </ScrollPane>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="167.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/choose_order.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="233.0" fitWidth="297.0" layoutX="106.0" layoutY="-57.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu_category.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" layoutX="134.0" layoutY="85.0" prefHeight="150.0" prefWidth="1104.0" spacing="12.0" style="-fx-border-color: black; -fx-border-radius: 15; -fx-padding: 0; -fx-background-color: #E8D8C4; -fx-background-radius: 15;" stylesheets="@general.css">
+               <children>
+                  <Button fx:id="cat1" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="118.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Rice Meals" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/cooking.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat2" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Pasta" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/spaghetti.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat3" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Cakes" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/cake.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat4" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Burger" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/burger%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat5" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Coffee" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/cup-of-drink.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat6" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Frappe" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/frappe.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat7" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Tea" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/coffee.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="cat8" contentDisplay="TOP" mnemonicParsing="false" prefHeight="143.0" prefWidth="117.0" style="-fx-font-weight: bold;" styleClass="category-button" text="Appetizer" textAlignment="CENTER" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="84.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/nachos.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="slider" layoutX="4.0" layoutY="-4.0" prefHeight="729.0" prefWidth="89.0" style="-fx-border-width: 20;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-11.0" layoutY="97.0" prefHeight="628.0" prefWidth="105.0" spacing="24.0" style="-fx-background-color: E8D8C4; -fx-border-color: black;" stylesheets="@general.css">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#homeBtn" prefHeight="86.0" prefWidth="159.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/home%20-%20light.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#orderBtn" prefHeight="77.0" prefWidth="181.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Order" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/menu(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showStocks" prefHeight="74.0" prefWidth="180.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Stocks">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="53.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/ready-stock.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTable" prefHeight="87.0" prefWidth="175.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Table" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/dining-table.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="employmentBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#showEmployment" prefHeight="75.0" prefWidth="156.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" text="Employment">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/headhunting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="94.0" prefWidth="98.0" style="-fx-background-color: C7B7A3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="menu" fitHeight="92.0" fitWidth="204.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuClose" fitHeight="92.0" fitWidth="106.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

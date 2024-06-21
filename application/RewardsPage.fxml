@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RewardsController">
+   <children>
+      <AnchorPane fx:id="slider" layoutX="4.0" layoutY="-4.0" prefHeight="729.0" prefWidth="89.0" style="-fx-border-width: 20;">
+         <children>
+            <VBox alignment="CENTER" layoutX="-11.0" layoutY="92.0" prefHeight="633.0" prefWidth="102.0" spacing="24.0" style="-fx-background-color: E8D8C4; -fx-border-color: black;">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#homeBtn" prefHeight="86.0" prefWidth="159.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Home" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/home%20-%20light.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#orderBtn" prefHeight="77.0" prefWidth="181.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Order" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/menu(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showCart" prefHeight="74.0" prefWidth="180.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Cart">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/shopping-cart.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#showTable" prefHeight="87.0" prefWidth="175.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Table" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/dining-table.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#showRewards" prefHeight="75.0" prefWidth="156.0" style="-fx-font-weight: bold;" styleClass="left-panel-button" stylesheets="@general.css" text="Rewards">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/gift.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="slider2" layoutX="1065.0" layoutY="85.0" prefHeight="640.0" prefWidth="215.0" style="-fx-background-color: E8D8C4;">
+         <children>
+            <VBox prefHeight="640.0" prefWidth="215.0" style="-fx-border-color: black;">
+               <children>
+                  <HBox prefHeight="0.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="nameLabel" prefHeight="75.0" prefWidth="135.0" style="-fx-font-weight: bold;" text="Guest" wrapText="true">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#showAccount" prefHeight="60.0" prefWidth="73.0" style="-fx-background-color: E8D8C4;">
+                           <font>
+                              <Font name="Arial" size="22.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../pictures/profile-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="24.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="215.0">
+                     <children>
+                        <Label fx:id="roleLabel" prefHeight="21.0" prefWidth="111.0" style="-fx-font-weight: bold;" text="Role">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="8.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#showAccount" prefHeight="27.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="right-panel-button" stylesheets="@general.css" text="Edit Account">
+                           <HBox.margin>
+                              <Insets right="8.0" />
+                           </HBox.margin></Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="440.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="215.0" spacing="32.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#signUp" styleClass="right-panel-button" stylesheets="@general.css" text="Sign up">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#signIn" styleClass="right-panel-button" stylesheets="@general.css" text="Log in">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="90.0" prefWidth="1280.0" style="-fx-background-color: C7B7A3; -fx-border-color: black;">
+         <children>
+            <ImageView fx:id="accountClose" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menuClose" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="account" fitHeight="38.0" fitWidth="38.0" layoutX="1217.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/menu.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="menu" fitHeight="99.0" fitWidth="92.0" layoutX="2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/theposher.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+      <ImageView fitHeight="252.0" fitWidth="452.0" layoutX="96.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/rewards.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="infoBtn" layoutX="348.0" layoutY="156.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="31.0" style="-fx-background-color: white;">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/question-mark%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="44.0" fitWidth="47.0" layoutX="943.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/money.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="coinsLabel" layoutX="993.0" layoutY="118.0" prefHeight="58.0" prefWidth="215.0" style="-fx-font-weight: bold;" text="0" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="260.0" layoutY="262.0" prefHeight="286.0" prefWidth="760.0" spacing="32.0" style="-fx-background-radius: 30;">
+         <children>
+            <VBox alignment="CENTER" prefHeight="258.0" prefWidth="162.0" spacing="8.0" style="-fx-background-color: #E6FF94; -fx-background-radius: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 5, 5);;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="135.0" prefWidth="162.0" style="-fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 30;" text="Gift Certificate worth ₱200" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="190.0">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/money.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="64.0" style="-fx-font-weight: bold;" text="200" textAlignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="claim1" mnemonicParsing="false" prefHeight="41.0" prefWidth="131.0" style="-fx-text-fill: #561C24; -fx-font-weight: bold; -fx-background-color: white;" styleClass="comic-button" stylesheets="@general.css" text="CLAIM">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="258.0" prefWidth="162.0" spacing="8.0" style="-fx-background-color: #9DDE8B; -fx-background-radius: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 5, 5);;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="135.0" prefWidth="162.0" style="-fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 30;" text="Gift Certificate worth ₱500" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="190.0">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/money.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="64.0" style="-fx-font-weight: bold;" text="500" textAlignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="claim2" mnemonicParsing="false" prefHeight="41.0" prefWidth="131.0" style="-fx-text-fill: #561C24; -fx-font-weight: bold; -fx-background-color: white;" styleClass="comic-button" stylesheets="@general.css" text="CLAIM">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="258.0" prefWidth="162.0" spacing="8.0" style="-fx-background-color: #40A578; -fx-background-radius: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 5, 5);;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="135.0" prefWidth="162.0" style="-fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 30;" text="Gift Certificate worth ₱1000" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="190.0">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/money.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="64.0" style="-fx-font-weight: bold;" text="1000" textAlignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="claim3" mnemonicParsing="false" prefHeight="41.0" prefWidth="131.0" style="-fx-text-fill: #561C24; -fx-font-weight: bold; -fx-background-color: white;" styleClass="comic-button" stylesheets="@general.css" text="CLAIM">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="258.0" prefWidth="162.0" spacing="8.0" style="-fx-background-color: #006769; -fx-background-radius: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0.2, 5, 5);;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="135.0" prefWidth="162.0" style="-fx-background-color: white; -fx-font-weight: bold; -fx-background-radius: 30;" text="Gift Certificate worth ₱2000" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="190.0">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../pictures/money.png" />
+                           </image>
+                        </ImageView>
+                        <Label prefHeight="36.0" prefWidth="64.0" style="-fx-font-weight: bold;" text="2000" textAlignment="CENTER">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="8.0" />
+                     </padding>
+                  </HBox>
+                  <Button fx:id="claim4" mnemonicParsing="false" prefHeight="41.0" prefWidth="131.0" style="-fx-text-fill: #561C24; -fx-font-weight: bold; -fx-background-color: white;" styleClass="comic-button" stylesheets="@general.css" text="CLAIM">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
