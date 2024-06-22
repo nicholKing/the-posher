@@ -28,9 +28,7 @@ The Posher is a Java-based desktop application designed to serve as a comprehens
    - **Booking Information**: Users need to provide their contact information to confirm their reservations.
 
 3. **Rewards Page**: 
-   - Customers can claim rewards through 
-
-points earned from their orders. 
+   - Customers can claim rewards through points earned from their orders. 
    - **Account Requirement**: This page is only accessible to users with a registered account.
 
 #### Admin Interface
@@ -42,9 +40,7 @@ points earned from their orders.
    - This feature allows admins to oversee existing bookings and update the status of tables when customers are done.
 
 3. **Employment Management**: 
-   - Admins can manage employee information, including adding new employees, editing existing information, 
-
-and deleting records.
+   - Admins can manage employee information, including adding new employees, editing existing information, and deleting records.
    - **Salary Management**: Admins can also update and manage employee salaries through this interface.
 
 ### Technical Implementation
