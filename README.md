@@ -4,9 +4,6 @@ The Posher is a comprehensive restaurant management suite developed and created 
 
 ![the-posher-logo](https://i.ibb.co/YbwyZLR/theposher.png)
 
-
-# The Posher: The Complete Restaurant Management Suite
-
 ## Background
 
 In the competitive world of restaurant management, efficiency, customer satisfaction, and streamlined operations are paramount. The Posher was conceived as a solution to the myriad challenges faced by restaurant owners, managers, and staff. Traditional methods of managing orders, reservations, and inventory often lead to errors, miscommunications, and inefficiencies. By leveraging modern technology, The Posher aims to revolutionize the restaurant industry, providing a comprehensive management suite that caters to both customer and administrative needs.
