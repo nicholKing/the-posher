@@ -63,8 +63,8 @@ public class DatabaseHelper {
                     MenuItem item = new MenuItem(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getInt("price"),
                         rs.getInt("stock"),
+                        rs.getInt("price"),
                         rs.getString("options"),
                         rs.getString("category")
                     );
@@ -312,6 +312,9 @@ public class DatabaseHelper {
                         rs.getString("options"), // Assign fetched options to the menu item
                         rs.getString("category")
                     );
+                    
+                    System.out.println("Fetched MenuItem from DB: " + item);
+                    
                     items.add(item);
                 }
             }
@@ -348,11 +351,11 @@ public class DatabaseHelper {
     }
 
     public static void updateMenuItem(MenuItem item) throws SQLException {
-        String query = "UPDATE menu_items SET name = ?, price = ?, stock = ?, options = ?, category = ? WHERE id = ?";
+        String query = "UPDATE menu_items SET name = ?, stock = ?, price = ?, options = ?, category = ? WHERE id = ?";
         try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, item.getFoodName());
-            stmt.setInt(2, item.getPrice());
-            stmt.setInt(3, item.getStock());
+            stmt.setInt(2, item.getStock());
+            stmt.setInt(3, item.getPrice());
             stmt.setString(4, item.getOptions());
             stmt.setString(5, item.getCategory());
             stmt.setInt(6, item.getId());

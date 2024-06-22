@@ -299,12 +299,13 @@ public class AdStockController implements Initializable{
 	    }
 	}
 	private void displayMenuItems(List<MenuItem> items) {
+	
 	    // Sort items alphabetically by food name
 		items.sort(Comparator
 		        .comparing(MenuItem::getFoodName)
 		        .thenComparing(MenuItem::getCategory)
 		        .thenComparing(item -> getFirstOption(item.getOptions())));
-
+	
 	    // Clear existing items
 	    itemsVBox.getChildren().clear();
 
@@ -381,7 +382,7 @@ public class AdStockController implements Initializable{
 
 		        
 		        MenuItem item = new MenuItem(0, foodName, stock, price, option, category, imageBytes);
-		    
+		       
 		        DatabaseHelper.addMenuItem(item);
 		      
 			    
@@ -400,14 +401,14 @@ public class AdStockController implements Initializable{
 	                int stock = Integer.parseInt(stockField.getText());
 	                String category = categoryComboBox.getValue();
 	                
-
 	                MenuItem updatedItem = new MenuItem(selectedItem.getId(), foodname, stock, price, option, category);
 	                DatabaseHelper.updateMenuItem(updatedItem);
 	                if (foodname != null && imageBytes != null) {
 				        DatabaseHelper.updateMenuItemImage(foodname, imageBytes);
+				        imageBytes = null;
 				    }
 	                clearFields();
-	                loadMenuItems();
+	                loadMenuItemsByCategory("All");
 	            }
 	        } catch (SQLException e) {
 	            e.printStackTrace();
@@ -416,8 +417,8 @@ public class AdStockController implements Initializable{
 	public void deleteMenuItem(MenuItem item) {
 	        try {
 	            DatabaseHelper.deleteMenuItem(item.getId()); // Add method to delete from database
-	            loadMenuItems(); // Reload items after deletion
 	            clearFields();
+	            loadMenuItemsByCategory("All"); // Reload items after deletion
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
@@ -429,7 +430,10 @@ public class AdStockController implements Initializable{
 	        stockField.clear();
 	        categoryComboBox.setValue(null);
 	        selectedItem = null;
+	        filterComboBox.setValue("Filter");
+	        
 	        imageView.setImage(null);
+	        
 	    }
 	
 	//SETTER METHODS
