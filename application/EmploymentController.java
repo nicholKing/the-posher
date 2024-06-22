@@ -57,29 +57,20 @@ public class EmploymentController implements Initializable{
 	private Button removeAllBtn;
 	@FXML
     private TableView<Employee> tableView;
-
     @FXML
     private TableColumn<Employee, Integer> idColumn;
-
     @FXML
     private TableColumn<Employee, String> nameColumn;
-
     @FXML
     private TableColumn<Employee, String> emailColumn;
-
     @FXML
     private TableColumn<Employee, Integer> ageColumn;
-
     @FXML
     private TableColumn<Employee, Double> salaryColumn;
-
     @FXML
     private TableColumn<Employee, String> roleColumn;
-
     @FXML
     private TableColumn<Employee, String> genderColumn;
-
-	
 	@FXML
 	private Label nameLabel;
 	@FXML
@@ -124,10 +115,8 @@ public class EmploymentController implements Initializable{
 	
 	int id;
 	
-	
 	int employee_id;
 	String employee_name;
-	
 	
 	Connection con;
 	PreparedStatement pst;
@@ -163,11 +152,13 @@ public class EmploymentController implements Initializable{
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -177,22 +168,24 @@ public class EmploymentController implements Initializable{
 				}
 			}
 			else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			    Scene1Controller loginPage = loader.getController();
+			    loginPage.Connect();
+			    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 		}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -211,31 +204,6 @@ public class EmploymentController implements Initializable{
 				stage.show();
 			}
 		}
-	
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Home");
-		isHomeBtn = true;
-		changeScene(event, homePage);
-}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Order");
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-	}
-	public void showStock(ActionEvent event) throws IOException, SQLException {
-			changeScene(event,stockPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, tablePage);		
-	}
-	public void showEmployment(ActionEvent event) throws IOException, SQLException {
-		isEmploymentBtn = true;
-		changeScene(event, employmentPage);
-	}
-		
-
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
@@ -261,7 +229,28 @@ public class EmploymentController implements Initializable{
 			stage.show();
 		}
 	}
-		
+	
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showStock(ActionEvent event) throws IOException, SQLException {
+		changeScene(event,stockPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);		
+	}
+	public void showEmployment(ActionEvent event) throws IOException, SQLException {
+		isEmploymentBtn = true;
+		changeScene(event, employmentPage);
+	}
+
 	//HELPER METHODS
 	public void Connect() {
 			try {
@@ -409,7 +398,6 @@ public class EmploymentController implements Initializable{
         });
 	}
 	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 			try {
@@ -447,6 +435,7 @@ public class EmploymentController implements Initializable{
 			slideWindow();
 	    }
 	
+	//EMPLOYMENT SYSTEM
 	public void handleAddButton() {
 		boolean validId = false;
 	    EmployeeInputDialog dialog = new EmployeeInputDialog();
@@ -459,7 +448,6 @@ public class EmploymentController implements Initializable{
 	    } 
 	}
 
-	 
 	private boolean isValidNumber(String input) {
 	    try {
 	        int age = Integer.parseInt(input);
@@ -575,9 +563,6 @@ public class EmploymentController implements Initializable{
 	    }
 	}
 
-
-    
-	
 	 private void handleRemoveButton() {
         Employee selectedEmployee = tableView.getSelectionModel().getSelectedItem();
         if (selectedEmployee != null) {
@@ -626,6 +611,4 @@ public class EmploymentController implements Initializable{
 	            }
 	        }
 	    }
-	
-	
 }

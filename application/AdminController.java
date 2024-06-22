@@ -111,17 +111,22 @@ public class AdminController implements Initializable{
 	public void showAccount(ActionEvent event) throws IOException, SQLException {
 		if(hasAccount) {
 			isAccBtn = true;
-			changeScene(event, accPage);}
-			else {showAlert("Login or register to edit your information.", AlertType.INFORMATION);}
+			changeScene(event, accPage);
+		}
+		else {
+			showAlert("Login or register to edit your information.", AlertType.INFORMATION);
+		}
 	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -131,22 +136,24 @@ public class AdminController implements Initializable{
 				}
 			}
 			else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			    Scene1Controller loginPage = loader.getController();
+			    loginPage.Connect();
+			    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
-		}
+	}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -165,12 +172,39 @@ public class AdminController implements Initializable{
 				stage.show();
 			}
 		}
+	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+	    root = loader.load();
+	    
+		if(hasAccount) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Logout");
+			alert.setHeaderText("You're about to logout");
+			alert.setContentText("Are you sure you want to logout?");
+			
+			if(alert.showAndWait().get() == ButtonType.OK) {
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			    scene = new Scene(root);
+			    stage.setScene(scene);
+			    stage.show();
+			    hasAccount = false;
+			}
+		}
+		else {
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+	}
 
 	//LEFT PANEL
 	public void homeBtn(ActionEvent event) throws IOException, SQLException {
 		isHomeBtn = true;
 		changeScene(event, homePage);
-}
+	}
 	public void orderBtn(ActionEvent event) throws IOException, SQLException {
 		isOrderBtn = true;
 		changeScene(event, orderPage);
@@ -191,32 +225,7 @@ public class AdminController implements Initializable{
 			showAlert("This page is only for owner.", AlertType.INFORMATION);
 		}
 	}
-	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-	    root = loader.load();
-		if(hasAccount) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Logout");
-			alert.setHeaderText("You're about to logout");
-			alert.setContentText("Are you sure you want to logout?");
-			if(alert.showAndWait().get() == ButtonType.OK) {
-				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			    scene = new Scene(root);
-			    stage.setScene(scene);
-			    stage.show();
-			    hasAccount = false;
-			}
-		}
-		else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
-	}
-		
+	
 	//HELPER METHODS
 	public void Connect() {
 			try {

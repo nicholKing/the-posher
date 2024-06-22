@@ -278,12 +278,12 @@ public class Scene1Controller implements Initializable{
 			}
 		});
     }
-   
     private String passwordValue() {
 	    return pass_toggle.isSelected()?
 	       pass_text.getText(): pass_hidden.getText();
 	}
-    
+   
+    //PRESS ENTER KEY TO LOGIN
     private void enableEnterKeyLogin(TextField usernameField, PasswordField passwordField, Button loginButton) {
         EventHandler<KeyEvent> enterKeyHandler = event -> {
             if (event.getCode() == KeyCode.ENTER) {

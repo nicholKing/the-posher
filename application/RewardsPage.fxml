@@ -82,7 +82,7 @@
       </AnchorPane>
       <AnchorPane fx:id="slider2" layoutX="1065.0" layoutY="85.0" prefHeight="640.0" prefWidth="215.0" style="-fx-background-color: E8D8C4;">
          <children>
-            <VBox prefHeight="640.0" prefWidth="215.0" style="-fx-border-color: black;">
+            <VBox alignment="CENTER" layoutY="-8.0" prefHeight="648.0" prefWidth="215.0" style="-fx-border-color: black;" stylesheets="@general.css">
                <children>
                   <HBox prefHeight="0.0" prefWidth="215.0">
                      <children>
@@ -108,7 +108,7 @@
                         </Button>
                      </children>
                      <VBox.margin>
-                        <Insets top="24.0" />
+                        <Insets />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="24.0" prefWidth="215.0">
@@ -124,7 +124,7 @@
                               <Insets left="8.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#showAccount" prefHeight="27.0" prefWidth="125.0" style="-fx-font-weight: bold;" styleClass="right-panel-button" stylesheets="@general.css" text="Edit Account">
+                        <Button mnemonicParsing="false" onAction="#showAccount" prefHeight="30.0" prefWidth="125.0" styleClass="right-panel-button" stylesheets="@general.css" text="Edit Account">
                            <HBox.margin>
                               <Insets right="8.0" />
                            </HBox.margin></Button>
@@ -133,19 +133,22 @@
                         <Insets bottom="440.0" />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="29.0" prefWidth="215.0" spacing="32.0">
+                  <HBox fx:id="signHbox" alignment="CENTER" prefHeight="53.0" prefWidth="213.0" spacing="24.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#signUp" styleClass="right-panel-button" stylesheets="@general.css" text="Sign up">
+                        <Button fx:id="signupBtn" mnemonicParsing="false" onAction="#signUp" prefHeight="40.0" styleClass="right-panel-button" stylesheets="@general.css" text="Sign up">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#signIn" styleClass="right-panel-button" stylesheets="@general.css" text="Log in">
+                        <Button fx:id="logBtn" contentDisplay="TOP" mnemonicParsing="false" onAction="#logout" prefHeight="40.0" prefWidth="82.0" styleClass="right-panel-button" stylesheets="@general.css" text="Login">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="8.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>

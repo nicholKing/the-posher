@@ -102,7 +102,6 @@ public class Reservation {
         this.reserved.set(reserved);
     }
 
-
     @Override
     public String toString() {
         return "Reservation{" +

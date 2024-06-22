@@ -40,9 +40,6 @@ public class OrderPanel2Controller {
     public void setName(String foodName) {
     	this.foodName = foodName;
     }
-    
- 
-
     public void setPrice(String price) {
         priceLabel.setText(price);
     }

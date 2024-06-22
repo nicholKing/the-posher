@@ -44,8 +44,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class CartController implements Initializable{
-	
-	
 	@FXML
 	private Label nameLabel;
 	@FXML
@@ -177,34 +175,6 @@ public class CartController implements Initializable{
 			stage.show();
 		}
 	}
-
-		
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Home");
-		isHomeBtn = true;
-		changeScene(event, homePage);
-}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		
-		System.out.println("Order");
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
-		changeScene(event, cartPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-			isTableBtn = true;
-			changeScene(event, tablePage);
-	}
-	public void showRewards(ActionEvent event) throws IOException, SQLException {
-			if(hasAccount) {
-				isRewardBtn = true;
-				changeScene(event, rewardsPage);
-				}
-			else {showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);}
-	}
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
@@ -228,6 +198,32 @@ public class CartController implements Initializable{
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+		}
+	}
+
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		changeScene(event, cartPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+			isTableBtn = true;
+			changeScene(event, tablePage);
+	}
+	public void showRewards(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isRewardBtn = true;
+			changeScene(event, rewardsPage);
+		}
+		else {
+			showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
 		}
 	}
 	
@@ -297,7 +293,6 @@ public class CartController implements Initializable{
 		orderPage.setUserDetails(role, hasAccount, dbName, id);  
 		orderPage.setOrders(orderList);
 	}
-	
 	public void proceedToCheckout() throws SQLException {
  
         // Iterate through each item in the cart
@@ -367,7 +362,6 @@ public class CartController implements Initializable{
             showAlert("Unable to load the order summary dialog.", AlertType.ERROR);
         }
     }
-	
 	public void giveReward() throws SQLException {
 		
 		if(hasAccount) {
@@ -417,7 +411,6 @@ public class CartController implements Initializable{
 		}
 		
 	}
-	
 	
 	//HELPER METHODS
 	public void Connect() {
@@ -576,6 +569,7 @@ public class CartController implements Initializable{
 			signHbox.getChildren().remove(signupBtn);
 		}
 	}
+	
 	//GETTERS AND SETTERS 
 	public void setUserDetails(String role, boolean hasAccount, String dbName, int id) {
 	    this.role = role;
@@ -631,9 +625,14 @@ public class CartController implements Initializable{
 				}
 		
 			});
+			PauseTransition delay = new PauseTransition(Duration.millis(10));
+	        delay.setOnFinished(event -> {
+	        	displayLogout();
+	        });
+	        delay.play();
         	Connect();
         	setSlides();
-        	displayLogout();
+        	
 	}
 	
 }

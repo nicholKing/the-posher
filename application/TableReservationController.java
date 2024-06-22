@@ -106,7 +106,6 @@ public class TableReservationController implements Initializable {
     @FXML
     private Label tryLabel;
     
-   
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -142,14 +141,12 @@ public class TableReservationController implements Initializable {
     public String email;  // To store the user's email
     public String tableName;  // To store the user's name
 	
-	
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
 	
 	private final Popup timePopup = new Popup();
     private final ListView<String> timeListView = new ListView<>();
-    
     
     private ObjectProperty<LocalDate> selectedDate = new SimpleObjectProperty<>();
     private ObjectProperty<LocalTime> selectedTime = new SimpleObjectProperty<>();
@@ -721,15 +718,15 @@ public class TableReservationController implements Initializable {
 	    }
     }
 
-	
-	//TOP BUTTONS
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-			isHomeBtn = true;
-			changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-			isOrderBtn = true;
-			changeScene(event, orderPage);
+	//RIGHT PANEL
+    public void showAccount(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isAccBtn = true;
+			changeScene(event, accPage);
+		}
+		else {
+			showAlert("Login or register to edit your information.", AlertType.INFORMATION);
+		}
 	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
@@ -759,11 +756,13 @@ public class TableReservationController implements Initializable {
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -771,7 +770,6 @@ public class TableReservationController implements Initializable {
 			    stage.show();
 			    hasAccount = false;
 			}
-			
 		}
 		else {
 			SignUpController signUpPage = loader.getController();
@@ -782,37 +780,16 @@ public class TableReservationController implements Initializable {
 			stage.show();
 		}
 	}
-		
-	//SIDE BUTTONS
-	public void showAccount(ActionEvent event) throws IOException, SQLException {
-		if(hasAccount) {
-			isAccBtn = true;
-			changeScene(event, accPage);
-		}else {
-			showAlert("Login or register to edit your information.", AlertType.INFORMATION);}
-	}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
-		changeScene(event, cartPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-			isTableBtn = true;
-			changeScene(event, tablePage);
-	}
-	public void showRewards(ActionEvent event) throws IOException, SQLException {
-			if(hasAccount) {
-				isRewardBtn = true;
-				changeScene(event, rewardsPage);
-			}
-			else {showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);}
-	}
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -829,8 +806,36 @@ public class TableReservationController implements Initializable {
 			stage.setScene(scene);
 			stage.show();
 		}
-		    
+	}
+		
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}	
+	
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		changeScene(event, cartPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);
+	}
+	public void showRewards(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isRewardBtn = true;
+			changeScene(event, rewardsPage);
 		}
+		else {
+			showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
+		}
+	}
+	
+	//HELPER METHODS
 	public void Connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -839,7 +844,7 @@ public class TableReservationController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-}
+	}
 	public void changeScene(ActionEvent event, String page) throws IOException, SQLException {
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
@@ -888,13 +893,6 @@ public class TableReservationController implements Initializable {
 		
 		
 }
-	public void setUserDetails(String role, boolean hasAccount, String dbName, int id) {
-	    this.role = role;
-	    this.hasAccount = hasAccount;
-	    this.dbName = dbName;
-	    this.id = id;
-	}
-	
 	private void showAlert(String contentText, AlertType alertType) {
 	
 		 Alert alert = new Alert(alertType);
@@ -932,6 +930,17 @@ public class TableReservationController implements Initializable {
                accountClose.setVisible(true);
            });
        
+	}
+	
+	//SETTER METHODS
+	public void setOrderList(List<OrderData> orderList) {
+		this.orderList = orderList;
+	}
+	public void setUserDetails(String role, boolean hasAccount, String dbName, int id) {
+	    this.role = role;
+	    this.hasAccount = hasAccount;
+	    this.dbName = dbName;
+	    this.id = id;
 	}
 	private void setSlides() {
 		slider.setTranslateX(-200);
@@ -1010,8 +1019,5 @@ public class TableReservationController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		setSlides();
-	}
-	public void setOrderList(List<OrderData> orderList) {
-		this.orderList = orderList;
 	}
 }

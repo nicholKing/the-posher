@@ -119,17 +119,22 @@ public class RewardsController implements Initializable{
 	public void showAccount(ActionEvent event) throws IOException, SQLException {
 		if(hasAccount) {
 			isAccBtn = true;
-			changeScene(event, accPage);}
-			else {showAlert("Login or register to edit your information.", AlertType.INFORMATION);}
-}
+			changeScene(event, accPage);
+		}
+		else {
+			showAlert("Login or register to edit your information.", AlertType.INFORMATION);
+		}
+	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -139,22 +144,24 @@ public class RewardsController implements Initializable{
 				}
 			}
 			else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			    Scene1Controller loginPage = loader.getController();
+			    loginPage.Connect();
+			    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 		}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -162,49 +169,26 @@ public class RewardsController implements Initializable{
 				    stage.show();
 				    hasAccount = false;
 				}
-				
 			}
 			else {
-			SignUpController signUpPage = loader.getController();
-			signUpPage.Connect();
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+				SignUpController signUpPage = loader.getController();
+				signUpPage.Connect();
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 		}
-
-		
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Home");
-		isHomeBtn = true;
-		changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Order");
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-	}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
-			changeScene(event,cartPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, tablePage);
-	}
-	public void showRewards(ActionEvent event) throws IOException, SQLException {
-				isRewardBtn = true;
-				changeScene(event, rewardsPage);
-	}
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -223,6 +207,26 @@ public class RewardsController implements Initializable{
 		}
 	}
 	
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		changeScene(event,cartPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);
+	}
+	public void showRewards(ActionEvent event) throws IOException, SQLException {
+		isRewardBtn = true;
+		changeScene(event, rewardsPage);
+	}
 	
 	//REWARDS SYSTEM
 	public void showCoins() throws SQLException {
@@ -303,6 +307,7 @@ public class RewardsController implements Initializable{
 			showAlert("For every ₱1000 you spent, you will be rewarded 1 coin.", AlertType.INFORMATION);
 		});
 	}
+	
 	//HELPER METHODS
 	public void Connect() {
 			try {
@@ -461,6 +466,7 @@ public class RewardsController implements Initializable{
 	}
 	private void displayLogout() {
 		if(!hasAccount) {
+			System.out.println("Has no Account");
 			logBtn.setText("Sign in");
 		}
 		else {
@@ -472,16 +478,19 @@ public class RewardsController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 			
 			try {
-				
 				showInfo();
 				showCoins();
 				checkCoins();
 				displayName();
-				displayLogout();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			PauseTransition delay = new PauseTransition(Duration.millis(10));
+	        delay.setOnFinished(event -> {
+	        	displayLogout();
+	        });
+	        delay.play();
 			Connect();
 			slideWindow();
 	    }

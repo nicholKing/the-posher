@@ -79,19 +79,11 @@ public class OrderPanelController {
         
     }
 
-    
-
-
-    
-    
     public void setName(String name) {
         foodLabel.setText(name);
     }
-
-
     public void setPrice(String price) {
         priceLabel.setText(price);
     }
  
-
 }

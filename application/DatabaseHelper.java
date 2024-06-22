@@ -29,7 +29,6 @@ public class DatabaseHelper {
     private static final String USER = "root";
     private static final String PASSWORD = "";
     
-	
 	@SuppressWarnings("exports")
 	public static Connection connect() throws SQLException {
         return (Connection) DriverManager.getConnection(URL, USER, PASSWORD);
@@ -158,7 +157,6 @@ public class DatabaseHelper {
         }
     }
     
-    
     public static List<Reservation> fetchAllReservations() {
         List<Reservation> reservations = new ArrayList<>();
         String sql = "SELECT email, appointment_date_time, name, table_number, reserved FROM appointments";
@@ -189,9 +187,7 @@ public class DatabaseHelper {
         }
         return reservations;
     }
-    
-
-    // Method to fetch all reservations for a given date
+   
     public static List<Reservation> fetchExistingReservations(LocalDate ldate) {
         List<Reservation> reservations = new ArrayList<>();
 
@@ -251,7 +247,6 @@ public class DatabaseHelper {
             e.printStackTrace();
         }
     }
-
     
     public static void deleteReservation(String email) {
         String sql = "DELETE FROM appointments WHERE email = ?";

@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -32,7 +33,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -63,7 +63,6 @@ public class HomeController implements Initializable{
     private ImageView ad3;
     @FXML
     private ImageView ad4;
-    
     @FXML
     private HBox signHbox;
     @FXML
@@ -117,16 +116,20 @@ public class HomeController implements Initializable{
 		if(hasAccount) {
 			isAccBtn = true;
 			changeScene(event, accPage);}
-			else {showAlert("Login or register to edit your information.", AlertType.INFORMATION);}
-}
+		else {
+			showAlert("Login or register to edit your information.", AlertType.INFORMATION);
+		}
+	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -136,22 +139,24 @@ public class HomeController implements Initializable{
 				}
 			}
 			else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+			    Scene1Controller loginPage = loader.getController();
+			    loginPage.Connect();
+			    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 		}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 		    root = loader.load();
+		    
 			if(hasAccount) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
 				alert.setTitle("Logout");
 				alert.setHeaderText("You're about to logout");
 				alert.setContentText("Are you sure you want to logout?");
+				
 				if(alert.showAndWait().get() == ButtonType.OK) {
 					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				    scene = new Scene(root);
@@ -162,67 +167,14 @@ public class HomeController implements Initializable{
 				
 			}
 			else {
-			SignUpController signUpPage = loader.getController();
-			signUpPage.Connect();
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
+				SignUpController signUpPage = loader.getController();
+				signUpPage.Connect();
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
 			}
 		}
-	
-	public void initializeAds() {
-		
-		addHoverEffect(ad1);
-        addHoverEffect(ad2);
-        addHoverEffect(ad3);
-        addHoverEffect(ad4);
-
-	}
-	
-	private DropShadow dropShadow = new DropShadow(10, javafx.scene.paint.Color.GRAY);
-
-	
-	private void addHoverEffect(ImageView imageView) {
-        imageView.setOnMouseEntered(event -> {
-        	imageView.setEffect(dropShadow);
-            imageView.setScaleX(1.03); // Scale to 120% of original size
-            imageView.setScaleY(1.03);
-        });
-
-        imageView.setOnMouseExited(event -> {
-        	imageView.setEffect(null);
-            imageView.setScaleX(1.0); // Reset scale to original size
-            imageView.setScaleY(1.0);
-        });
-    }
-
-		
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		isHomeBtn = true;
-		changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-	}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
-			changeScene(event,cartPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, tablePage);
-	}
-	public void showRewards(ActionEvent event) throws IOException, SQLException {
-			if(hasAccount) {
-				isRewardBtn = true;
-				changeScene(event, rewardsPage);
-			}
-			else {
-				showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
-			}
-	}
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
@@ -248,7 +200,33 @@ public class HomeController implements Initializable{
 			stage.show();
 		}
 	}
-		
+	
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		changeScene(event,cartPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);
+	}
+	public void showRewards(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isRewardBtn = true;
+			changeScene(event, rewardsPage);
+		}
+		else {
+			showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
+		}
+	}
+	
 	//HELPER METHODS
 	public void Connect() {
 			try {
@@ -310,7 +288,6 @@ public class HomeController implements Initializable{
 			signHbox.getChildren().remove(signupBtn);
 		}
 	}
-	
 	private void showAlert(String contentText, AlertType alertType) {
 
         Alert alert = new Alert(alertType);
@@ -403,7 +380,6 @@ public class HomeController implements Initializable{
             });
         });
 	}
-	
 	private void changeScene2(MouseEvent event, String page) throws IOException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
 		root = loader.load();
@@ -491,6 +467,29 @@ public class HomeController implements Initializable{
 			}
 		});
 	}
+	public void initializeAds() {
+		addHoverEffect(ad1);
+        addHoverEffect(ad2);
+        addHoverEffect(ad3);
+        addHoverEffect(ad4);
+	}
+	
+	private DropShadow dropShadow = new DropShadow(10, javafx.scene.paint.Color.GRAY);
+
+	
+	private void addHoverEffect(ImageView imageView) {
+        imageView.setOnMouseEntered(event -> {
+        	imageView.setEffect(dropShadow);
+            imageView.setScaleX(1.03); // Scale to 120% of original size
+            imageView.setScaleY(1.03);
+        });
+
+        imageView.setOnMouseExited(event -> {
+        	imageView.setEffect(null);
+            imageView.setScaleX(1.0); // Reset scale to original size
+            imageView.setScaleY(1.0);
+        });
+    }
 	
 	//SETTER METHODS
 	public void setUserDetails(String role, boolean hasAccount, String dbName, int id) {
@@ -498,20 +497,24 @@ public class HomeController implements Initializable{
 		    this.hasAccount = hasAccount;
 		    this.dbName = dbName;
 		    this.id = id;
-		}
+	}
 	public void setOrderList(List<OrderData> orderList) {
 			this.orderList = orderList;
-		}
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 			try {
 				switchPage();
 				displayName();
-				displayLogout();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			 PauseTransition delay = new PauseTransition(Duration.millis(10));
+		        delay.setOnFinished(event -> {
+		        	displayLogout();
+		        });
+		        delay.play();
 			Connect();
 			slideWindow();
 	    }

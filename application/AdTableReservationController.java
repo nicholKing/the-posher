@@ -127,7 +127,6 @@ public class AdTableReservationController implements Initializable {
 
     private final ObservableList<Reservation> reservationList = FXCollections.observableArrayList();
     
-   
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -135,7 +134,6 @@ public class AdTableReservationController implements Initializable {
 	List<OrderData> orderList = new ArrayList<>();
 	OrderData orderData = new OrderData();
 	
-
 	String name;
 	String username = "";
     String rewardsPage = "RewardsPage.fxml";
@@ -164,7 +162,6 @@ public class AdTableReservationController implements Initializable {
     boolean isAccBtn = false;
     boolean isEmploymentBtn = false;
 	
-	
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -176,7 +173,6 @@ public class AdTableReservationController implements Initializable {
         timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
         tableColumn.setCellValueFactory(cellData -> cellData.getValue().TableNumberProperty().asObject());
         reservedColumn.setCellValueFactory(cellData -> cellData.getValue().reservedProperty().asObject());
-        
         
         tableView.setItems(reservationList);
 
@@ -198,16 +194,10 @@ public class AdTableReservationController implements Initializable {
         updateButton.setOnAction(event -> updateReservation());
         updateButton.setDisable(true);
     }
-    
-    
-        
     private void loadReservations() {
         List<Reservation> reservations = DatabaseHelper.fetchAllReservations();
         reservationList.setAll(reservations);
     }
-    
-    
-
     private void updateReservation() {
         Reservation selectedReservation = tableView.getSelectionModel().getSelectedItem();
         if (selectedReservation == null) {
@@ -268,8 +258,7 @@ public class AdTableReservationController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
-    
-   
+  
     public void tableNumber() {
     	
     	EventHandler<MouseEvent> clearHighlight = event -> {
@@ -413,16 +402,16 @@ public class AdTableReservationController implements Initializable {
         });
     }
 
-	
-
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -432,12 +421,12 @@ public class AdTableReservationController implements Initializable {
 			}
 		}
 		else {
-	    Scene1Controller loginPage = loader.getController();
-	    loginPage.Connect();
-	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
@@ -466,34 +455,6 @@ public class AdTableReservationController implements Initializable {
 			stage.show();
 		}
 	}
-		
-	
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		isHomeBtn = true;
-		changeScene(event, homePage);
-}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-	}
-	public void showStock(ActionEvent event) throws IOException, SQLException {
-			changeScene(event,stockPage);
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, tablePage);		
-	}
-	public void showEmployment(ActionEvent event) throws IOException, SQLException {
-		if(hasAccount && role.equals("Owner")) {
-			isEmploymentBtn = true;
-			changeScene(event, employmentPage);
-		}
-		else {
-			showAlert("This page is only for owner.", AlertType.INFORMATION);
-		}
-	}
-	
 	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
@@ -519,7 +480,34 @@ public class AdTableReservationController implements Initializable {
 			stage.show();
 		}
 		    
+	}
+		
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showStock(ActionEvent event) throws IOException, SQLException {
+			changeScene(event,stockPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);		
+	}
+	public void showEmployment(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount && role.equals("Owner")) {
+			isEmploymentBtn = true;
+			changeScene(event, employmentPage);
 		}
+		else {
+			showAlert("This page is only for owner.", AlertType.INFORMATION);
+		}
+	}
+	
 	public void Connect() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -528,7 +516,7 @@ public class AdTableReservationController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-}
+	}
 	public void changeScene(ActionEvent event, String page) throws IOException, SQLException {
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
@@ -546,12 +534,10 @@ public class AdTableReservationController implements Initializable {
 		else if(isOrderBtn) {
 			AdOrderController orderPage = loader.getController();
 			orderPage.setUserDetails(role, hasAccount, dbName, id);
-			
 		}else if(isTableBtn) {
 			AdTableReservationController tablePage = loader.getController();
 			tablePage.setUserDetails(role, hasAccount, dbName, id);
 			tablePage.initialize();
-			
 		}else if(isAccBtn) {
 			AccountDetailsController accPage = loader.getController();
 			accPage.setUserDetails(role, hasAccount, dbName, id);
@@ -574,7 +560,6 @@ public class AdTableReservationController implements Initializable {
 	    this.dbName = dbName;
 	    this.id = id;
 	}
-	
 	private void showAlert(String contentText, AlertType alertType) {
 	
 		 Alert alert = new Alert(alertType);
@@ -614,7 +599,7 @@ public class AdTableReservationController implements Initializable {
        
 	}
 	private void setSlides() {
-		slider.setTranslateX(-200);
+		
 		menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
@@ -648,54 +633,11 @@ public class AdTableReservationController implements Initializable {
                 menuClose.setVisible(false);
             });
         });
-        
-        
-//       
-//		account.setOnMouseClicked(event -> {
-//            TranslateTransition slide = new TranslateTransition();
-//            slide.setDuration(Duration.seconds(0.5));
-//            slide.setNode(slider2);
-//            
-//            slide.setToX(0);
-//            slide.play();
-//           
-//            slider2.setTranslateX(400);
-//           
-//            slide.setOnFinished((ActionEvent e)-> {
-//                account.setVisible(false);
-//                accountClose.setVisible(true);
-//            });
-//        });
-		
-		accountClose.setOnMouseClicked(event -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.4));
-            slide.setNode(slider2);
 
-            slide.setToX(400);
-            slide.play();
-            
-            slider2.setTranslateX(0);
-            
-     
-            slide.setOnFinished((ActionEvent e)-> {
-            	account.setVisible(true);
-            	accountClose.setVisible(false);
-            });
-        });
 	}
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-	}
-	public void setHasAccount(boolean hasAccount) {
-		this.hasAccount = hasAccount;
-}
-	public void setName(String dbName) {
-		this.dbName = dbName;
-}
-	public void setOrderList(List<OrderData> orderList) {
-		this.orderList = orderList;
+		setSlides();
 	}
 }

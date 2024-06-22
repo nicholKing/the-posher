@@ -160,24 +160,24 @@ public class OrderController implements Initializable{
 	char category;
 	private static final int COLUMNS = 5;
 	
-	//TOP BUTTON
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		isHomeBtn = true;
-		changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		this.setOrders(orderList);
-		isOrderBtn = true;
-		changeScene(event, orderPage);
+	//LEFT PANEL
+	public void showAccount(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isAccBtn = true;
+			changeScene(event, "AccountDetails.fxml");
+		}
+		else {showAlert("Login or register to edit your information", AlertType.INFORMATION);}
 	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -187,12 +187,12 @@ public class OrderController implements Initializable{
 			}
 		}
 		else {
-	    Scene1Controller loginPage = loader.getController();
-	    loginPage.Connect();
-	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
@@ -221,32 +221,6 @@ public class OrderController implements Initializable{
 			stage.show();
 		}
 	}
-	
-	//SIDE BUTTONS
-	public void showAccount(ActionEvent event) throws IOException, SQLException {
-		if(hasAccount) {
-			isAccBtn = true;
-			changeScene(event, "AccountDetails.fxml");
-		}
-		else {showAlert("Login or register to edit your information", AlertType.INFORMATION);}
-	}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
-		isCartBtn = true;
-		changeScene(event, "MyCart.fxml");
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, "TableReservationPage.fxml");
-		}
-	public void showRewards(ActionEvent event) throws IOException, SQLException {
-		if(hasAccount) {
-			isRewardBtn = true;
-			changeScene(event, rewardsPage);
-		}
-		else {
-			showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
-		}
-	}
 	public void logout(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 		root = loader.load();
@@ -270,6 +244,34 @@ public class OrderController implements Initializable{
 				stage.show();
 			}
 			Scene1Controller loginPage = loader.getController();
+		}
+	}
+	
+	//RIGHT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		this.setOrders(orderList);
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		isCartBtn = true;
+		changeScene(event, cartPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);
+		}
+	public void showRewards(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount) {
+			isRewardBtn = true;
+			changeScene(event, rewardsPage);
+		}
+		else {
+			showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);
 		}
 	}
 	
@@ -355,7 +357,7 @@ public class OrderController implements Initializable{
 		        int row = i / COLUMNS;
 		        rootGridPane.add(nodes.get(i), col, row);
 		    }
-		}
+	}
 	private void loadMenuItems() {
 	    try {
 	        List<MenuItem> items = DatabaseHelper.getMenuItems();

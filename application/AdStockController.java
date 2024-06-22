@@ -97,15 +97,16 @@ public class AdStockController implements Initializable{
     private ImageView accountClose;
     @FXML
     private AnchorPane slider2;
-  
-    private MenuItem selectedItem;
+    @FXML
+	private ImageView imageView;
     
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	List<OrderData> orderList = new ArrayList<>();
-
+	private MenuItem selectedItem;
+	
 	int id;
 	String role;
 	String name;
@@ -129,82 +130,16 @@ public class AdStockController implements Initializable{
 	String foodname;
 	String option;
 	String category;
-	
     int price;
     int stock;
 	
+    private byte[] imageBytes;
 	
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
 	
-	
-
-	
-	//TOP BUTTONS
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-			System.out.println("Home");
-			isHomeBtn = true;
-			changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-			System.out.println("Order");
-			isOrderBtn = true;
-			changeScene(event, orderPage);
-	}
-	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-		    root = loader.load();
-			if(hasAccount) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Logout");
-				alert.setHeaderText("You're about to logout");
-				alert.setContentText("Are you sure you want to logout?");
-				if(alert.showAndWait().get() == ButtonType.OK) {
-					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-				    scene = new Scene(root);
-				    stage.setScene(scene);
-				    stage.show();
-				    hasAccount = false;
-				}
-			}
-			else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-			}
-		}
-	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
-		    root = loader.load();
-			if(hasAccount) {
-				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Logout");
-				alert.setHeaderText("You're about to logout");
-				alert.setContentText("Are you sure you want to logout?");
-				if(alert.showAndWait().get() == ButtonType.OK) {
-					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-				    scene = new Scene(root);
-				    stage.setScene(scene);
-				    stage.show();
-				    hasAccount = false;
-				}
-				
-			}
-			else {
-			SignUpController signUpPage = loader.getController();
-			signUpPage.Connect();
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-			}
-		}
-	
-	//SIDE BUTTONS
+	//LEFT PANEL
 	public void displayName() throws SQLException {
 	    // Calculate font size based on name length
 	    if (dbName.length() >= 12 && dbName.length() <= 15) {
@@ -232,14 +167,104 @@ public class AdStockController implements Initializable{
 			changeScene(event, accPage);}
 			else {showAlert("Login or register to edit your information.", AlertType.INFORMATION);}
 	}
-	public void showCart(ActionEvent event) throws IOException, SQLException {
+	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+		    root = loader.load();
+		    
+			if(hasAccount) {
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Logout");
+				alert.setHeaderText("You're about to logout");
+				alert.setContentText("Are you sure you want to logout?");
+				
+				if(alert.showAndWait().get() == ButtonType.OK) {
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				    scene = new Scene(root);
+				    stage.setScene(scene);
+				    stage.show();
+				    hasAccount = false;
+				}
+			}
+			else {
+			    Scene1Controller loginPage = loader.getController();
+			    loginPage.Connect();
+			    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+		}
+	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
+		    root = loader.load();
+		    
+			if(hasAccount) {
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("Logout");
+				alert.setHeaderText("You're about to logout");
+				alert.setContentText("Are you sure you want to logout?");
+				
+				if(alert.showAndWait().get() == ButtonType.OK) {
+					stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				    scene = new Scene(root);
+				    stage.setScene(scene);
+				    stage.show();
+				    hasAccount = false;
+				}
+				
+			}
+			else {
+				SignUpController signUpPage = loader.getController();
+				signUpPage.Connect();
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+		}
+	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+	    root = loader.load();
+	    
+		if(hasAccount) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Logout");
+			alert.setHeaderText("You're about to logout");
+			alert.setContentText("Are you sure you want to logout?");
 			
-			changeScene(event,stockPage);
+			if(alert.showAndWait().get() == ButtonType.OK) {
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			    scene = new Scene(root);
+			    stage.setScene(scene);
+			    stage.show();
+			    hasAccount = false;
+			}
+		}
+		else {
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+	}
+
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showCart(ActionEvent event) throws IOException, SQLException {
+		changeScene(event,stockPage);
 	}
 	public void showTable(ActionEvent event) throws IOException, SQLException {
 		isTableBtn = true;
-		changeScene(event, tablePage);
-			
+		changeScene(event, tablePage);	
 	}
 	public void showEmployment(ActionEvent event) throws IOException, SQLException {
 			if(hasAccount && role.equals("Owner")) {
@@ -250,32 +275,7 @@ public class AdStockController implements Initializable{
 			showAlert("This page is only for owner.", AlertType.INFORMATION);
 			}
 	}
-	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-	    root = loader.load();
-		if(hasAccount) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Logout");
-			alert.setHeaderText("You're about to logout");
-			alert.setContentText("Are you sure you want to logout?");
-			if(alert.showAndWait().get() == ButtonType.OK) {
-				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			    scene = new Scene(root);
-			    stage.setScene(scene);
-			    stage.show();
-			    hasAccount = false;
-			}
-		}
-		else {
-	    Scene1Controller loginPage = loader.getController();
-	    loginPage.Connect();
-	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-		}
-	}
-		
+	
 	//STOCK METHODS
 	private void loadMenuItemsByCategory(String category) {
 	        try {
@@ -605,12 +605,6 @@ public class AdStockController implements Initializable{
 	            loadMenuItemsByCategory(selectedCategory);
 	        });
 	}
-	
-	 
-	 private byte[] imageBytes;
-	@FXML
-	private ImageView imageView;
-	
 	private void handleUploadButtonAction(Window window) throws FileNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(
@@ -641,7 +635,6 @@ public class AdStockController implements Initializable{
             return new byte[0];
         }
     }
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 			uploadBtn.setOnAction(e -> {
@@ -660,5 +653,4 @@ public class AdStockController implements Initializable{
 	        updateBtn.setOnAction(event -> updateMenuItem());
 	        deleteBtn.setOnAction(event -> deleteMenuItem(selectedItem));
 		}
-	
 }

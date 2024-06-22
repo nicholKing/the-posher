@@ -87,11 +87,12 @@ public class AdOrderController implements Initializable{
 	
 	String role;
 	String dbName;
+	String homePage = "AdHomePage.fxml";
+	String stockPage = "AdStockPage.fxml";
 	String orderPage = "AdOrderPage.fxml";
-    String homePage = "AdHomePage.fxml";
     String accPage = "AccountDetails.fxml";
-    String tablePage = "AdTableReservationPage.fxml";
     String employmentPage = "EmploymentPage.fxml";
+    String tablePage = "AdTableReservationPage.fxml";
     String previousClickedBtn = ""; 
     
     int id;
@@ -125,16 +126,20 @@ public class AdOrderController implements Initializable{
 			isAccBtn = true;
 			changeScene(event, "AccountDetails.fxml");
 		}
-		else {showAlert("Login or register to edit your information", AlertType.INFORMATION);}
+		else {
+			showAlert("Login or register to edit your information", AlertType.INFORMATION);
+		}
 	}
 	public void signIn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -144,22 +149,24 @@ public class AdOrderController implements Initializable{
 			}
 		}
 		else {
-	    Scene1Controller loginPage = loader.getController();
-	    loginPage.Connect();
-	    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 		}
 	}
 	public void signUp(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUp.fxml"));
 	    root = loader.load();
+	    
 		if(hasAccount) {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Logout");
 			alert.setHeaderText("You're about to logout");
 			alert.setContentText("Are you sure you want to logout?");
+			
 			if(alert.showAndWait().get() == ButtonType.OK) {
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			    scene = new Scene(root);
@@ -167,7 +174,6 @@ public class AdOrderController implements Initializable{
 			    stage.show();
 			    hasAccount = false;
 			}
-			
 		}
 		else {
 			SignUpController signUpPage = loader.getController();
@@ -176,34 +182,6 @@ public class AdOrderController implements Initializable{
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		}
-	}
-	
-	//LEFT PANEL
-	public void homeBtn(ActionEvent event) throws IOException, SQLException {
-		isHomeBtn = true;
-		changeScene(event, homePage);
-	}
-	public void orderBtn(ActionEvent event) throws IOException, SQLException {
-		System.out.println("Order");
-		isOrderBtn = true;
-		changeScene(event, orderPage);
-	}
-	public void showStocks(ActionEvent event) throws IOException, SQLException {
-		isCartBtn = true;
-		changeScene(event, "AdStockPage.fxml");
-	}
-	public void showTable(ActionEvent event) throws IOException, SQLException {
-		isTableBtn = true;
-		changeScene(event, tablePage);
-		}
-	public void showEmployment(ActionEvent event) throws IOException, SQLException {
-		if(hasAccount && role.equals("Owner")) {
-			isEmploymentBtn = true;
-			changeScene(event, employmentPage);
-		}
-		else {
-			showAlert("This page is only for owner.", AlertType.INFORMATION);
 		}
 	}
 	public void logout(ActionEvent event) throws IOException {
@@ -229,6 +207,33 @@ public class AdOrderController implements Initializable{
 				stage.show();
 			}
 			Scene1Controller loginPage = loader.getController();
+		}
+	}
+	
+	//LEFT PANEL
+	public void homeBtn(ActionEvent event) throws IOException, SQLException {
+		isHomeBtn = true;
+		changeScene(event, homePage);
+	}
+	public void orderBtn(ActionEvent event) throws IOException, SQLException {
+		isOrderBtn = true;
+		changeScene(event, orderPage);
+	}
+	public void showStocks(ActionEvent event) throws IOException, SQLException {
+		isCartBtn = true;
+		changeScene(event, stockPage);
+	}
+	public void showTable(ActionEvent event) throws IOException, SQLException {
+		isTableBtn = true;
+		changeScene(event, tablePage);
+	}
+	public void showEmployment(ActionEvent event) throws IOException, SQLException {
+		if(hasAccount && role.equals("Owner")) {
+			isEmploymentBtn = true;
+			changeScene(event, employmentPage);
+		}
+		else {
+			showAlert("This page is only for owner.", AlertType.INFORMATION);
 		}
 	}
 
@@ -319,7 +324,6 @@ public class AdOrderController implements Initializable{
 			AccountDetailsController accPage = loader.getController();
 			accPage.setUserDetails(role, hasAccount, dbName, id);
 			accPage.displayName();
-			
 		}else if(isEmploymentBtn) {
 			EmploymentController employmentPage = loader.getController();
 			employmentPage.setUserDetails(role, hasAccount, dbName, id);
@@ -328,14 +332,12 @@ public class AdOrderController implements Initializable{
 			AdStockController stockPage = loader.getController();
 			stockPage.setUserDetails(role, hasAccount, dbName, id);
 			stockPage.displayName();
-			
 		}
 		
 	}
     private void setSlides() {
 		menu.setVisible(true);
 		menuClose.setVisible(false);
-		
 		
 		menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
@@ -391,7 +393,6 @@ public class AdOrderController implements Initializable{
 	            }
 	        }, 2 * 1000);
 	    }
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cat1.setOnAction(event -> loadOrdersByCategory("Rice Meals"));

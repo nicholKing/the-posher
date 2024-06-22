@@ -1,3 +1,4 @@
+
 package application;
 
 import java.io.IOException;
@@ -233,6 +234,31 @@ public class AccountDetailsController implements Initializable{
 		stage.show();
 		}
 	}
+	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+	    root = loader.load();
+		if(hasAccount) {
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Logout");
+			alert.setHeaderText("You're about to logout");
+			alert.setContentText("Are you sure you want to logout?");
+			if(alert.showAndWait().get() == ButtonType.OK) {
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			    scene = new Scene(root);
+			    stage.setScene(scene);
+			    stage.show();
+			    hasAccount = false;
+			}
+		}
+		else {
+		    Scene1Controller loginPage = loader.getController();
+		    loginPage.Connect();
+		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+	}
 		
 	//LEFT PANEL
 	public void homeBtn(ActionEvent event) throws IOException, SQLException {
@@ -265,31 +291,6 @@ public class AccountDetailsController implements Initializable{
 				}
 			}
 			else {showAlert("Create an account to unlock exciting rewards!", AlertType.INFORMATION);}
-	}
-	public void logout(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
-	    root = loader.load();
-		if(hasAccount) {
-			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Logout");
-			alert.setHeaderText("You're about to logout");
-			alert.setContentText("Are you sure you want to logout?");
-			if(alert.showAndWait().get() == ButtonType.OK) {
-				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			    scene = new Scene(root);
-			    stage.setScene(scene);
-			    stage.show();
-			    hasAccount = false;
-			}
-		}
-		else {
-		    Scene1Controller loginPage = loader.getController();
-		    loginPage.Connect();
-		    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		}
 	}
 	
 	//ACCOUNT SYSTEM
@@ -700,7 +701,6 @@ public class AccountDetailsController implements Initializable{
 		emailField.setEditable(toggle);
 	}
 
-	
 	//SETTERS 
 	public void setUserDetails(String role, boolean hasAccount, String dbName, int id) {
 	    this.role = role;
@@ -721,7 +721,7 @@ public class AccountDetailsController implements Initializable{
 		showTooltip("address", addressTextField);	
 	}
 	 
-	 public void displayIcon() {
+	public void displayIcon() {
 			if(role.equals("Owner") || role.equals("Employee")) {
 				img1.setImage(stockImg);
 				img2.setImage(employmentImg);
@@ -729,7 +729,7 @@ public class AccountDetailsController implements Initializable{
 				btn2.setText("Employment");
 			}
 		}
-	 private void displayLogout() {
+	private void displayLogout() {
 			if(!hasAccount) {
 				logBtn.setText("Sign in");
 			}

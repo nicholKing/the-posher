@@ -70,7 +70,6 @@ public class SignUpController {
 			if(hasCorrectPassword) {
 				registerAccount(event);
 			}
-			
 	}
 	
 	//CHECKER METHODS
