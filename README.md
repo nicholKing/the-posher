@@ -56,6 +56,4 @@ The Posher is built using Java, a robust and versatile programming language, ens
 
 ### Conclusion
 
-The Posher addresses the critical needs of modern restaurants by providing a 
-
-comprehensive management solution. By automating and streamlining key processes, it helps restaurant owners and managers focus on delivering exceptional service and growing their business. With its wide array of features, The Posher is poised to become an indispensable tool in the restaurant industry.
+The Posher addresses the critical needs of modern restaurants by providing a comprehensive management solution. By automating and streamlining key processes, it helps restaurant owners and managers focus on delivering exceptional service and growing their business. With its wide array of features, The Posher is poised to become an indispensable tool in the restaurant industry.
